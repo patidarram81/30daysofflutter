@@ -1,22 +1,29 @@
+import 'package:flutteproject1/home_page.dart';
+import 'package:flutteproject1/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-              child: Text("well come to flutter app")
-          ),
-        ),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple,
+      fontFamily: GoogleFonts.lato().fontFamily
+    ),
+      darkTheme: ThemeData(
+        brightness: Brightness.light,
       ),
-    );
+    routes: {
+      "/": (context) => Loginpage(),
+      "/HOME":(context) => Homepage(),
+      "/login":(context) => Loginpage(),
+       },
+      );
+    }
   }
-}
